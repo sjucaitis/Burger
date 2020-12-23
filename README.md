@@ -10,3 +10,4 @@ To test database, a user must install required node modules and populate a MySql
 
 Functionality of the application is demonstrated below.
 
+![](burger.gif)
