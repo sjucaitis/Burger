@@ -1,0 +1,52 @@
+
+
+<div class="container">
+  <h1>Eat-Da-Burger!</h1>
+  <div class="row">
+    <div class="col-4">
+      <img src=https://pbs.twimg.com/media/DvSBdxoUwAA5h1L?format=jpg&name=small alt="Peter Parker Devouring Burger">
+    </div>
+    <div class="col-2"></div>
+  
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+    <h2>Burgers to Devour!</h2>
+    
+  <!-- Displays default/not devoured burgers -->
+  {{#each burger_data}}
+		 {{#unless this.devoured}}
+      <p>{{this.id}}. {{this.burger_name}} 
+        <form class="devour-it"><!-- links to burger.js function for devouring -->
+						<input input type="hidden" class="burger_id" type="text" value={{this.id}}>
+						<button type="submit" class="btn btn-info">Devour it!</button>
+           <hr>
+				</form></p>
+    {{/unless}}
+    {{/each}}
+    </div>
+
+<div class="col-6">
+    <h2>Burgers You Devoured!</h2>
+
+<!-- Displays devoured burgers -->
+<p>
+   {{#each burger_data}}
+		 {{#if this.devoured}}
+      <p>{{this.id}}. {{this.burger_name}}</p>
+       {{/if}}
+    {{/each}}
+</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Add a Burger</h2>
+<!-- Adds new, undevoured burger -->
+<form action="/burgers/create" method="POST">
+				<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
+				<button type="submit" class="btn btn-info" id="text-enter-button">Submit</button>
+			</form>
+</div>
